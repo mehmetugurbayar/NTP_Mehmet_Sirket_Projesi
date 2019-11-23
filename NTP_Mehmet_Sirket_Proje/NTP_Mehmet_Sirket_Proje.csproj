@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Giris_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Giris_Form.Designer.cs">
+      <DependentUpon>Giris_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     <Compile Include="Urunler_Form.Designer.cs">
       <DependentUpon>Urunler_Form.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Giris_Form.resx">
+      <DependentUpon>Giris_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

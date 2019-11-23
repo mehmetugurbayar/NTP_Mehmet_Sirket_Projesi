@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace Sirket.DAL
 {
-    public class Helper
+    public class Helper : IDisposable
     {
         SqlConnection cn = null;
-
+        SqlCommand cmd=null;
         public int ExecuteNonQuery(string cmdtext, SqlParameter[] p)
         {
-            cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cstr"].ConnectionString);//hata veriyor
+            cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cstr"].ConnectionString);
 
-            SqlCommand cmd = new SqlCommand(cmdtext, cn);
+            cmd = new SqlCommand(cmdtext, cn);
             if (p != null)
             {
                 cmd.Parameters.AddRange(p);
@@ -27,8 +27,24 @@ namespace Sirket.DAL
             Kapa();
             return sonuc;
         }
+        public SqlDataReader ExecuteReader(string cmdtext, SqlParameter[] p)
+        {
+            cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cstr"].ConnectionString);
+            cmd = new SqlCommand(cmdtext, cn);
+            if (p != null)
+            {
+                cmd.Parameters.AddRange(p);
+            }
+            Ac();
+          
+            return cmd.ExecuteReader(CommandBehavior.CloseConnection); //kapatır
+        }
 
-        public void Ac()
+      
+
+
+
+         public void Ac()
         {
             try
             {
@@ -50,6 +66,15 @@ namespace Sirket.DAL
             {
 
                 throw;
+            }
+        }
+
+        public void Dispose()
+        {
+            if (cn != null && cmd != null)
+            {
+                cn.Dispose();
+                cmd.Dispose();
             }
         }
     }
