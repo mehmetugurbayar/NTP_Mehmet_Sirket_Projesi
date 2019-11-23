@@ -21,9 +21,10 @@ namespace Sirket.BLL
         public bool Urun_Guncelle(Urunler urun)
         {
             SqlParameter[] p = { new SqlParameter("@urun_kodu", urun.Urun_kodu), new SqlParameter("@urun_ad", urun.Urun_ad), new SqlParameter("@stok_mik", urun.Stok_mik), new SqlParameter("@fiyat", urun.Fiyat) };
-            int sonuc= hlp.ExecuteNonQuery("UPDATE Urun_Tablosu SET urun_kodu=@Urun_kodu,urun_ad=@Urun_ad,stok_mik=@Stok_mik,fiyat=@Fiyat WHERE urun_kodu=@Urun_kodu", p);
+            return hlp.ExecuteNonQuery("UPDATE Urun_Tablosu SET urun_kodu=@urun_kodu, urun_ad=@urun_ad,stok_mik=@stok_mik,fiyat=@fiyat WHERE urun_kodu=@urun_kodu", p) > 0 ;
 
-            return sonuc > 0;
+            
         }
+        
     }
 }

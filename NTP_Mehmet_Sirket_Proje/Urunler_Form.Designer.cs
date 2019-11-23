@@ -40,12 +40,10 @@
             this.urunSillbl = new System.Windows.Forms.Label();
             this.urunSiltextbox = new System.Windows.Forms.TextBox();
             this.Urun_Sil_Button = new System.Windows.Forms.Button();
-            this.updateUrunKodulbl = new System.Windows.Forms.Label();
             this.yeniUrunKodulbl = new System.Windows.Forms.Label();
             this.yeniUrunAdilbl = new System.Windows.Forms.Label();
             this.yeniUrunStoklbl = new System.Windows.Forms.Label();
             this.yeniUrunFiyat = new System.Windows.Forms.Label();
-            this.updateUrunKoduText = new System.Windows.Forms.TextBox();
             this.yeniUrunKoduText = new System.Windows.Forms.TextBox();
             this.yeniUrunAdiTextb = new System.Windows.Forms.TextBox();
             this.yeniUrunStokMikText = new System.Windows.Forms.TextBox();
@@ -152,23 +150,14 @@
             this.Urun_Sil_Button.Text = "ÜRÜN SİL";
             this.Urun_Sil_Button.UseVisualStyleBackColor = true;
             // 
-            // updateUrunKodulbl
-            // 
-            this.updateUrunKodulbl.AutoSize = true;
-            this.updateUrunKodulbl.Location = new System.Drawing.Point(388, 164);
-            this.updateUrunKodulbl.Name = "updateUrunKodulbl";
-            this.updateUrunKodulbl.Size = new System.Drawing.Size(136, 13);
-            this.updateUrunKodulbl.TabIndex = 12;
-            this.updateUrunKodulbl.Text = "Güncellenecek Ürün Kodu:";
-            // 
             // yeniUrunKodulbl
             // 
             this.yeniUrunKodulbl.AutoSize = true;
             this.yeniUrunKodulbl.Location = new System.Drawing.Point(388, 192);
             this.yeniUrunKodulbl.Name = "yeniUrunKodulbl";
-            this.yeniUrunKodulbl.Size = new System.Drawing.Size(85, 13);
+            this.yeniUrunKodulbl.Size = new System.Drawing.Size(61, 13);
             this.yeniUrunKodulbl.TabIndex = 13;
-            this.yeniUrunKodulbl.Text = "Yeni Ürün Kodu:";
+            this.yeniUrunKodulbl.Text = "Ürün Kodu:";
             // 
             // yeniUrunAdilbl
             // 
@@ -196,13 +185,6 @@
             this.yeniUrunFiyat.Size = new System.Drawing.Size(84, 13);
             this.yeniUrunFiyat.TabIndex = 16;
             this.yeniUrunFiyat.Text = "Yeni Urun Fiyatı:";
-            // 
-            // updateUrunKoduText
-            // 
-            this.updateUrunKoduText.Location = new System.Drawing.Point(555, 157);
-            this.updateUrunKoduText.Name = "updateUrunKoduText";
-            this.updateUrunKoduText.Size = new System.Drawing.Size(100, 20);
-            this.updateUrunKoduText.TabIndex = 17;
             // 
             // yeniUrunKoduText
             // 
@@ -252,12 +234,10 @@
             this.Controls.Add(this.yeniUrunStokMikText);
             this.Controls.Add(this.yeniUrunAdiTextb);
             this.Controls.Add(this.yeniUrunKoduText);
-            this.Controls.Add(this.updateUrunKoduText);
             this.Controls.Add(this.yeniUrunFiyat);
             this.Controls.Add(this.yeniUrunStoklbl);
             this.Controls.Add(this.yeniUrunAdilbl);
             this.Controls.Add(this.yeniUrunKodulbl);
-            this.Controls.Add(this.updateUrunKodulbl);
             this.Controls.Add(this.Urun_Sil_Button);
             this.Controls.Add(this.urunSiltextbox);
             this.Controls.Add(this.urunSillbl);
@@ -291,12 +271,10 @@
         private System.Windows.Forms.Label urunSillbl;
         private System.Windows.Forms.TextBox urunSiltextbox;
         private System.Windows.Forms.Button Urun_Sil_Button;
-        private System.Windows.Forms.Label updateUrunKodulbl;
         private System.Windows.Forms.Label yeniUrunKodulbl;
         private System.Windows.Forms.Label yeniUrunAdilbl;
         private System.Windows.Forms.Label yeniUrunStoklbl;
         private System.Windows.Forms.Label yeniUrunFiyat;
-        private System.Windows.Forms.TextBox updateUrunKoduText;
         private System.Windows.Forms.TextBox yeniUrunKoduText;
         private System.Windows.Forms.TextBox yeniUrunAdiTextb;
         private System.Windows.Forms.TextBox yeniUrunStokMikText;

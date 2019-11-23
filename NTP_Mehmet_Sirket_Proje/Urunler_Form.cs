@@ -25,6 +25,7 @@ namespace NTP_Mehmet_Sirket_Proje
             UrunBL sirketBL = new UrunBL();
             Urunler urun = new Urunler();
             urun.Urun_kodu = urun_kodu_textbox.Text.Trim();
+           
             urun.Urun_ad = urun_adi_textbox.Text.Trim();
             urun.Fiyat = int.Parse(urun_fiyat_textbox.Text);
             urun.Stok_mik = int.Parse(urun_stokMik_textbox.Text);
@@ -36,7 +37,7 @@ namespace NTP_Mehmet_Sirket_Proje
         {
             UrunBL urunbl = new UrunBL();
             Urunler urun = new Urunler();
-            urun.Urun_kodu = yeniUrunKoduText.Text.Trim();
+           urun.Urun_kodu = yeniUrunKoduText.Text.Trim();
             urun.Urun_ad= yeniUrunAdiTextb.Text.Trim();
             urun.Stok_mik = int.Parse(yeniUrunStokMikText.Text);
             urun.Fiyat = int.Parse(yeniUrunFiyatText.Text);
