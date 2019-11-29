@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sirket.BLL;
+using Sirket.MODEL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,14 +29,45 @@ namespace NTP_Mehmet_Sirket_Proje
             //sql de tablo yap yöneticiler diye ordaki bilgilerle eşleşirse giriş yapılsın
 
             //combobox ile seç giriş türünü
+            //rastgele kod versin timer tetiklensin belirtilen sürede kod girilsin
 
-            this.Enabled = false;
+
+            GirisBL girisbl = new GirisBL();
+            Giris giris = new Giris();
+            giris.Yetki = int.Parse(yetkitxt.Text);
+            giris.Kullanici_ad = idTxt.Text;
+            giris.Kullanici_sifre = sifreTxt.Text;
+            girisbl.Giris_Kontrol(giris);
+
+            if (giris.Yetki== int.Parse(yetkitxt.Text) && giris.Kullanici_ad==idTxt.Text && giris.Kullanici_sifre==sifreTxt.Text)
+            {
+
+                MessageBox.Show("giriş.yapıldı");
+            }
+            else
+            {
+
+                MessageBox.Show("Böyle bir kullanıcı bulunamadı");
+
+                //yönetici ise yönetici girişi yapıldı desin
+
+            }
+
+            /*
+        giris.Yetki= girisbl.Giris_Kontrol().Yetki;
+        giris.Kullanici_ad= girisbl.Giris_Kontrol().Kullanici_ad;
+        giris.Kullanici_sifre = girisbl.Giris_Kontrol().Kullanici_sifre;
+        //veritabanından alınan bilgiler
+        */
+
+
+            //this.Enabled = false;
 
         }
 
         private void Cikis_Button_Click(object sender, EventArgs e)
         {//kapanması gereken diper şwyleride kapat
-           
+
             Application.Exit();
         }
     }

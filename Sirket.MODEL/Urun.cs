@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sirket.MODEL
 {
-    public class Urunler
+    public class Urun
     {
         string urun_kodu, urun_ad;
         int stok_mik, fiyat;
