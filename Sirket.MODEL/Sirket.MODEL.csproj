@@ -42,6 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Giris.cs" />
+    <Compile Include="Musteri.cs" />
+    <Compile Include="Personel.cs" />
+    <Compile Include="Satis.cs" />
+    <Compile Include="Satislar.cs" />
     <Compile Include="Urun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

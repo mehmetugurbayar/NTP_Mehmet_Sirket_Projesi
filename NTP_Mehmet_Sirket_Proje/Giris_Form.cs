@@ -26,7 +26,7 @@ namespace NTP_Mehmet_Sirket_Proje
 
         private void GirisButton_Click(object sender, EventArgs e)
         {
-            //sql de tablo yap yöneticiler diye ordaki bilgilerle eşleşirse giriş yapılsın
+         
 
             //combobox ile seç giriş türünü
             //rastgele kod versin timer tetiklensin belirtilen sürede kod girilsin
@@ -43,13 +43,14 @@ namespace NTP_Mehmet_Sirket_Proje
             {
 
                 MessageBox.Show("giriş.yapıldı");
+                //yönetici ise yönetici girişi yapıldı desin
             }
             else
             {
 
                 MessageBox.Show("Böyle bir kullanıcı bulunamadı");
 
-                //yönetici ise yönetici girişi yapıldı desin
+              
 
             }
 

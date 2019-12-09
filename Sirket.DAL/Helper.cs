@@ -40,11 +40,26 @@ namespace Sirket.DAL
             return cmd.ExecuteReader(CommandBehavior.CloseConnection); //kapatır
         }
 
-      
+        //public SqlDataAdapter DataAdapter(string cmdtext) //data adapter türünde bir dönüş olması lazım
+       // {
+            //cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cstr"].ConnectionString);
+            //cmd = new SqlCommand(cmdtext, cn);
+            //SqlDataAdapter dneme = new SqlDataAdapter();
+            //if (cmd!=null)
+            //{
+            //    dneme = cmd;
+            //}
+            //Ac();
+
+            
+
+            //return dneme;
+        //}
 
 
 
-         public void Ac()
+
+        public void Ac()
         {
             try
             {

@@ -59,10 +59,13 @@
             this.pnlGuncelle = new System.Windows.Forms.Panel();
             this.pnlSil = new System.Windows.Forms.Panel();
             this.lblSilmeSonuc = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.pnlEkle.SuspendLayout();
             this.pnlGuncelle.SuspendLayout();
             this.pnlSil.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // Ekle_button
@@ -281,6 +284,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -294,7 +298,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(796, 230);
+            this.tabPage2.Size = new System.Drawing.Size(796, 172);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -340,6 +344,15 @@
             this.lblSilmeSonuc.TabIndex = 30;
             this.lblSilmeSonuc.Text = " ";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.MinimumSize = new System.Drawing.Size(879, 187);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(879, 187);
+            this.dataGridView1.TabIndex = 31;
+            // 
             // Urunler_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,12 +382,14 @@
             this.Text = "Urunler_Form";
             this.Load += new System.EventHandler(this.Urunler_Form_Load);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.pnlEkle.ResumeLayout(false);
             this.pnlEkle.PerformLayout();
             this.pnlGuncelle.ResumeLayout(false);
             this.pnlGuncelle.PerformLayout();
             this.pnlSil.ResumeLayout(false);
             this.pnlSil.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,5 +428,6 @@
         private System.Windows.Forms.Panel pnlSil;
         public System.Windows.Forms.Label urun_counter_lbl;
         public System.Windows.Forms.Label lblSilmeSonuc;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

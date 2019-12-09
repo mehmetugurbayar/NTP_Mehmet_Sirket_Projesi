@@ -156,6 +156,12 @@ namespace NTP_Mehmet_Sirket_Proje
         private void Urunler_Form_Load(object sender, EventArgs e)
         {
             //TABLO OTOMATİK YÜKLENECEK
+            UrunBL urunGoster = new UrunBL();
+            DataTable tablo = new DataTable();
+           // urunGoster.Veri_Getir();
+
+          //  dataGridView1.DataSource = urunGoster.Veri_Getir(); 
+            urunGoster.Dispose();
 
         }
 
