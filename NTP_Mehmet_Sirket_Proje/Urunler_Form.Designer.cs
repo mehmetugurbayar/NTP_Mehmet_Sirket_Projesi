@@ -52,20 +52,20 @@
             this.URUN_ARA_BUTTON = new System.Windows.Forms.Button();
             this.urunAraTextbox = new System.Windows.Forms.TextBox();
             this.urun_counter_lbl = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pnlEkle = new System.Windows.Forms.Panel();
             this.pnlGuncelle = new System.Windows.Forms.Panel();
             this.pnlSil = new System.Windows.Forms.Panel();
             this.lblSilmeSonuc = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.dgv1 = new System.Windows.Forms.DataGridView();
+            this.dgv_urun_kodu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv_urun_ad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv_stok_mik = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv_urun_fiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tblKaydetButton = new System.Windows.Forms.Button();
             this.pnlEkle.SuspendLayout();
             this.pnlGuncelle.SuspendLayout();
             this.pnlSil.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.SuspendLayout();
             // 
             // Ekle_button
@@ -272,37 +272,6 @@
             this.urun_counter_lbl.TabIndex = 25;
             this.urun_counter_lbl.Text = " ";
             // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(0, 253);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(804, 198);
-            this.tabControl1.TabIndex = 26;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(796, 172);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(796, 172);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // pnlEkle
             // 
             this.pnlEkle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -329,6 +298,7 @@
             // 
             // pnlSil
             // 
+            this.pnlSil.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlSil.Controls.Add(this.urunSiltextbox);
             this.pnlSil.Location = new System.Drawing.Point(637, 49);
             this.pnlSil.Name = "pnlSil";
@@ -344,26 +314,69 @@
             this.lblSilmeSonuc.TabIndex = 30;
             this.lblSilmeSonuc.Text = " ";
             // 
-            // dataGridView1
+            // dgv1
             // 
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.MinimumSize = new System.Drawing.Size(879, 187);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(879, 187);
-            this.dataGridView1.TabIndex = 31;
+            this.dgv1.AllowUserToDeleteRows = false;
+            this.dgv1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_urun_kodu,
+            this.dgv_urun_ad,
+            this.dgv_stok_mik,
+            this.dgv_urun_fiyat});
+            this.dgv1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgv1.Location = new System.Drawing.Point(0, 269);
+            this.dgv1.Name = "dgv1";
+            this.dgv1.Size = new System.Drawing.Size(800, 181);
+            this.dgv1.TabIndex = 31;
+            this.dgv1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgv1_KeyPress);
+            // 
+            // dgv_urun_kodu
+            // 
+            this.dgv_urun_kodu.DataPropertyName = "urun_kodu";
+            this.dgv_urun_kodu.HeaderText = "Ürün Kodu";
+            this.dgv_urun_kodu.Name = "dgv_urun_kodu";
+            // 
+            // dgv_urun_ad
+            // 
+            this.dgv_urun_ad.DataPropertyName = "urun_ad";
+            this.dgv_urun_ad.HeaderText = "Ürün Adı";
+            this.dgv_urun_ad.Name = "dgv_urun_ad";
+            // 
+            // dgv_stok_mik
+            // 
+            this.dgv_stok_mik.DataPropertyName = "stok_mik";
+            this.dgv_stok_mik.HeaderText = "Stok Miktarı";
+            this.dgv_stok_mik.Name = "dgv_stok_mik";
+            // 
+            // dgv_urun_fiyat
+            // 
+            this.dgv_urun_fiyat.DataPropertyName = "fiyat";
+            this.dgv_urun_fiyat.HeaderText = "Fiyat Bilgisi";
+            this.dgv_urun_fiyat.Name = "dgv_urun_fiyat";
+            // 
+            // tblKaydetButton
+            // 
+            this.tblKaydetButton.Location = new System.Drawing.Point(637, 240);
+            this.tblKaydetButton.Name = "tblKaydetButton";
+            this.tblKaydetButton.Size = new System.Drawing.Size(145, 23);
+            this.tblKaydetButton.TabIndex = 32;
+            this.tblKaydetButton.Text = "Tablo Değişiklikleri Kaydet";
+            this.tblKaydetButton.UseVisualStyleBackColor = true;
+            this.tblKaydetButton.Click += new System.EventHandler(this.tblKaydetButton_Click);
             // 
             // Urunler_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tblKaydetButton);
+            this.Controls.Add(this.dgv1);
             this.Controls.Add(this.lblSilmeSonuc);
             this.Controls.Add(this.urunAraTextbox);
             this.Controls.Add(this.pnlSil);
             this.Controls.Add(this.pnlGuncelle);
             this.Controls.Add(this.pnlEkle);
-            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.urun_counter_lbl);
             this.Controls.Add(this.URUN_ARA_BUTTON);
             this.Controls.Add(this.GuncelleButton);
@@ -381,15 +394,13 @@
             this.Name = "Urunler_Form";
             this.Text = "Urunler_Form";
             this.Load += new System.EventHandler(this.Urunler_Form_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.pnlEkle.ResumeLayout(false);
             this.pnlEkle.PerformLayout();
             this.pnlGuncelle.ResumeLayout(false);
             this.pnlGuncelle.PerformLayout();
             this.pnlSil.ResumeLayout(false);
             this.pnlSil.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -420,14 +431,16 @@
         private System.Windows.Forms.Button GuncelleButton;
         private System.Windows.Forms.Button URUN_ARA_BUTTON;
         private System.Windows.Forms.TextBox urunAraTextbox;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel pnlEkle;
         private System.Windows.Forms.Panel pnlGuncelle;
         private System.Windows.Forms.Panel pnlSil;
         public System.Windows.Forms.Label urun_counter_lbl;
         public System.Windows.Forms.Label lblSilmeSonuc;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv1;
+        private System.Windows.Forms.Button tblKaydetButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv_urun_kodu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv_urun_ad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv_stok_mik;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgv_urun_fiyat;
     }
 }

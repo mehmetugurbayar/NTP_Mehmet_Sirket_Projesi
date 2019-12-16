@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ using Sirket.MODEL;
 
 namespace Sirket.BLL
 {
-    public class PersoneBL : IDisposable
+    public class PersonelBL : IDisposable
     {
         Helper hlp = new Helper();
         public bool Personel_Ekle(Personel personel)
@@ -58,7 +59,7 @@ namespace Sirket.BLL
                 new SqlParameter("@maas", personel.Maas),
                 new SqlParameter("@pozisyon", personel.Pozisyon),
                 new SqlParameter("@baslama_tarih", personel.Baslama_tarihi), };
-                return hlp.ExecuteNonQuery("UPDATE Personel_Tablosu SET @perso_kod,@perso_ad,@perso_soyad,@perso_cinsiyet,@tel,@mail,@dogum_tarihi,@dogum_yeri,unvan,@maas,@pozisyon,@baslama_tarihi WHERE perso_kod=@perso_kod", p) > 0;
+                return hlp.ExecuteNonQuery("UPDATE Personel_Tablosu SET perso_ad=@perso_ad,perso_soyad=@perso_soyad,perso_cinsiyet=@perso_cinsiyet,tel=@tel,mail=@mail,dogum_tarih=@dogum_tarih,dogum_yeri=@dogum_yeri,unvan=@unvan,maas=@maas,pozisyon=@pozisyon,baslama_tarih=@baslama_tarih  WHERE perso_kod=@perso_kod", p) > 0;
 
             }
             catch (Exception)
@@ -68,6 +69,8 @@ namespace Sirket.BLL
             }
 
         }
+        public DataTable Personel_Tablo() => hlp.TabloGetir("Select perso_kod,perso_ad,perso_soyad,perso_cinsiyet,tel,mail,dogum_tarih,dogum_yeri,unvan,maas,pozisyon,baslama_tarih from Personel_Tablosu  ");
+        
         public bool Personel_Sil(Personel personel)
         {
             try
@@ -86,10 +89,10 @@ namespace Sirket.BLL
         {
 
             try
-            {
+            { Personel personel = null;
                 SqlParameter[] p = { new SqlParameter("@perso_kod", girilen_personel_kodu) };
-                SqlDataReader dr = hlp.ExecuteReader("Select @perso_kod,@perso_ad,@perso_soyad,@perso_cinsiyet,@tel,@mail,@dogum_tarihi,@dogum_yeri,@maas,@pozisyon,@baslama_tarihi from Personel_Tablosu where perso_kod=@perso_kod", p);
-                Personel personel = null;
+                SqlDataReader dr = hlp.ExecuteReader("Select perso_kod,perso_ad,perso_soyad,perso_cinsiyet,tel,mail,dogum_tarih,dogum_yeri,unvan,maas,pozisyon,baslama_tarih from Personel_Tablosu where perso_kod=@perso_kod", p);
+               
                 if (dr.Read())
                 {
                     personel = new Personel();
@@ -99,12 +102,12 @@ namespace Sirket.BLL
                     personel.Perso_cinsiyet = dr["perso_cinsiyet"].ToString();
                     personel.Tel = dr["tel"].ToString();
                     personel.Mail = dr["mail"].ToString();
-                    personel.Dogum_tarihi = dr["dogum_tarihi"].ToString();
+                    personel.Dogum_tarihi = dr["dogum_tarih"].ToString();
                     personel.Dogum_yeri = dr["dogum_yeri"].ToString();
                     personel.Unvan = dr["unvan"].ToString();
                     personel.Maas = Convert.ToInt32(dr["maas"]);
                     personel.Pozisyon = dr["pozisyon"].ToString();
-                    personel.Baslama_tarihi = dr["baslama_tarihi"].ToString();
+                    personel.Baslama_tarihi = dr["baslama_tarih"].ToString();
                 }
                 dr.Close();
                 return personel;

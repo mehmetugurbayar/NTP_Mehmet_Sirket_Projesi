@@ -2,6 +2,7 @@
 using Sirket.MODEL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -82,8 +83,9 @@ namespace Sirket.BLL
             }
 
         }
+        public DataTable Urun_Tablo() => hlp.TabloGetir("Select urun_kodu,urun_ad,stok_mik,fiyat from Urun_Tablosu ");
 
-        
+
 
         public void Dispose()
         {

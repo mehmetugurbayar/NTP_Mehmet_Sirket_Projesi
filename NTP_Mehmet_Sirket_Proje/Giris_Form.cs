@@ -24,6 +24,8 @@ namespace NTP_Mehmet_Sirket_Proje
 
         }
 
+        string ad, sifre;
+        int yetki;
         private void GirisButton_Click(object sender, EventArgs e)
         {
          
@@ -34,12 +36,12 @@ namespace NTP_Mehmet_Sirket_Proje
 
             GirisBL girisbl = new GirisBL();
             Giris giris = new Giris();
-            giris.Yetki = int.Parse(yetkitxt.Text);
-            giris.Kullanici_ad = idTxt.Text;
-            giris.Kullanici_sifre = sifreTxt.Text;
-            girisbl.Giris_Kontrol(giris);
+            yetki= int.Parse(yetkitxt.Text);
+            ad = idTxt.Text;
+            sifre= sifreTxt.Text;
+            girisbl.Giris_Kontrol(yetki,ad,sifre);
 
-            if (giris.Yetki== int.Parse(yetkitxt.Text) && giris.Kullanici_ad==idTxt.Text && giris.Kullanici_sifre==sifreTxt.Text)
+            if (giris.Yetki== yetki && giris.Kullanici_ad==ad && giris.Kullanici_sifre==sifre)
             {
 
                 MessageBox.Show("giriş.yapıldı");

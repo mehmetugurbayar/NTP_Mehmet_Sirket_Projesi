@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace NTP_Mehmet_Sirket_Proje
 {
-    public partial class MainForm : Form
+    public partial class Yapilan_Satislar_Form : Form
     {
-        public MainForm()
+        public Yapilan_Satislar_Form()
         {
             InitializeComponent();
-            
-
+            //BU FORMA SADECE YÖNETİCİ GİRİŞİ OLANLAR GÖREBİLECEK
+            //SADECE YAPILAN SATİŞLAR LİSTELENECEK
         }
     }
 }

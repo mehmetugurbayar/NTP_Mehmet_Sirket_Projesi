@@ -30,44 +30,42 @@ namespace Sirket.DAL
         public SqlDataReader ExecuteReader(string cmdtext, SqlParameter[] p)
         {
             cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cstr"].ConnectionString);
+             
             cmd = new SqlCommand(cmdtext, cn);
             if (p != null)
             {
                 cmd.Parameters.AddRange(p);
             }
             Ac();
-          
-            return cmd.ExecuteReader(CommandBehavior.CloseConnection); //kapatır
+
+            SqlDataReader dr= cmd.ExecuteReader(CommandBehavior.CloseConnection); //kapatır
+            return dr;
+        }
+      
+        public DataTable TabloGetir(string cmdtext)
+        {
+            cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cstr"].ConnectionString);
+            SqlDataAdapter da = new SqlDataAdapter(cmdtext, cn);
+            DataTable dt = new DataTable();
+            
+            
+            da.Fill(dt);
+            return dt;
         }
 
-        //public SqlDataAdapter DataAdapter(string cmdtext) //data adapter türünde bir dönüş olması lazım
-       // {
-            //cn = new SqlConnection(ConfigurationManager.ConnectionStrings["cstr"].ConnectionString);
-            //cmd = new SqlCommand(cmdtext, cn);
-            //SqlDataAdapter dneme = new SqlDataAdapter();
-            //if (cmd!=null)
-            //{
-            //    dneme = cmd;
-            //}
-            //Ac();
-
-            
-
-            //return dneme;
-        //}
-
-
-
-
+    
+        
         public void Ac()
         {
             try
             {
-                if (cn != null && cn.State != ConnectionState.Open) cn.Open();
+                if (cn != null && cn.State != ConnectionState.Open)
+                {
+                    cn.Open();
+                }
             }
             catch (Exception)
             {
-
                 throw;
             }
         }

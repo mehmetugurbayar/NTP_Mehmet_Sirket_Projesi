@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="GirisBL.cs" />
     <Compile Include="MusteriBL.cs" />
-    <Compile Include="PersoneBL.cs" />
+    <Compile Include="PersonelBL.cs" />
     <Compile Include="SatisBL.cs" />
     <Compile Include="SatislarBL.cs" />
     <Compile Include="UrunBL.cs" />

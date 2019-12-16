@@ -19,20 +19,23 @@ namespace NTP_Mehmet_Sirket_Proje
         public Urunler_Form()
         {
             InitializeComponent();
+            dgv1.AutoGenerateColumns = false;
         }
+        DataTable dt;
 
-        int urun_counter=0,silinen_urun_counter=0;
+        int urun_counter = 0, silinen_urun_counter = 0;
         private void Ekle_button_Click(object sender, EventArgs e)
-        { UrunBL urunbl = new UrunBL();
+        {
+            UrunBL urunbl = new UrunBL();
             try
             {
-           
-            Urun urun = new Urun();
-            urun.Urun_kodu = urun_kodu_textbox.Text.Trim();
-           urun.Urun_ad = urun_adi_textbox.Text.Trim();
-            urun.Fiyat = int.Parse(urun_fiyat_textbox.Text);
-            urun.Stok_mik = int.Parse(urun_stokMik_textbox.Text);
-            
+
+                Urun urun = new Urun();
+                urun.Urun_kodu = urun_kodu_textbox.Text.Trim();
+                urun.Urun_ad = urun_adi_textbox.Text.Trim();
+                urun.Fiyat = int.Parse(urun_fiyat_textbox.Text);
+                urun.Stok_mik = int.Parse(urun_stokMik_textbox.Text);
+
                 if (urunbl.Urun_Ekle(urun))
                 {
                     urun_counter++;
@@ -45,8 +48,8 @@ namespace NTP_Mehmet_Sirket_Proje
                     MessageBox.Show("Bir Hata Oluştu");
 
                 }
-            
-            
+
+
             }
             catch (SqlException ex)
             {
@@ -63,15 +66,16 @@ namespace NTP_Mehmet_Sirket_Proje
                 Temizle();
                 urunbl.Dispose();
             }
-            
+
 
         }
 
         private void GuncelleButton_Click(object sender, EventArgs e)
-        { UrunBL urunbl = new UrunBL();
+        {
+            UrunBL urunbl = new UrunBL();
             try
             {
-               
+
                 Urun urun = new Urun();
                 urun.Urun_kodu = yeniUrunKoduText.Text.Trim();
                 urun.Urun_ad = yeniUrunAdiTextb.Text.Trim();
@@ -94,20 +98,22 @@ namespace NTP_Mehmet_Sirket_Proje
         }
 
         private void Urun_Sil_Button_Click(object sender, EventArgs e)
-        {UrunBL urunbl = new UrunBL();
+        {
+            UrunBL urunbl = new UrunBL();
             DialogResult dialog = MessageBox.Show("Silinsinmi", "SİLME İŞLEMİ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
 
             if (dialog == DialogResult.No) return;
             try
             {
-                
+
                 Urun urun = new Urun();
                 urun.Urun_kodu = urunSiltextbox.Text;
                 if (urunbl.Urun_Sil(urun))
-                { silinen_urun_counter++;
-                    lblSilmeSonuc.Text =silinen_urun_counter.ToString()+" Ürün Silindi";
-                } 
+                {
+                    silinen_urun_counter++;
+                    lblSilmeSonuc.Text = silinen_urun_counter.ToString() + " Ürün Silindi";
+                }
             }
             catch (Exception)
             {
@@ -122,7 +128,8 @@ namespace NTP_Mehmet_Sirket_Proje
         }
 
         private void URUN_ARA_BUTTON_Click(object sender, EventArgs e)
-        {UrunBL urunbl = new UrunBL();
+        {
+            UrunBL urunbl = new UrunBL();
             try
             {
                 Urun urun = urunbl.Urun_Ara(urunAraTextbox.Text);
@@ -155,14 +162,45 @@ namespace NTP_Mehmet_Sirket_Proje
 
         private void Urunler_Form_Load(object sender, EventArgs e)
         {
-            //TABLO OTOMATİK YÜKLENECEK
             UrunBL urunGoster = new UrunBL();
-            DataTable tablo = new DataTable();
-           // urunGoster.Veri_Getir();
-
-          //  dataGridView1.DataSource = urunGoster.Veri_Getir(); 
+            dt = urunGoster.Urun_Tablo();
+            dgv1.DataSource = dt;
             urunGoster.Dispose();
 
+
+
+
+        }
+        private void tblKaydetButton_Click(object sender, EventArgs e)
+        {
+            UrunBL urunGoster = new UrunBL();
+            foreach (DataRow item in dt.Rows)
+            {
+
+                Urun urun = new Urun();
+                if (item.RowState != DataRowState.Deleted)
+                {
+                    urun.Urun_kodu = item[0].ToString();
+                    urun.Urun_ad = item[1].ToString();
+                    urun.Stok_mik = Convert.ToInt32(item[2]);
+                    urun.Fiyat = Convert.ToInt32(item[3]);
+
+                }
+
+                switch (item.RowState)
+                {
+                    case DataRowState.Added:
+                        urunGoster.Urun_Ekle(urun);
+                        break;
+
+                    case DataRowState.Modified:
+                        urun.Urun_kodu = item[0].ToString();
+                        urunGoster.Urun_Guncelle(urun);
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         private void urun_adi_textbox_KeyPress(object sender, KeyPressEventArgs e)
@@ -189,6 +227,15 @@ namespace NTP_Mehmet_Sirket_Proje
             {
                 e.Handled = true;
                 MessageBox.Show("Fiyat bilgisini sayısal olarak giriniz");
+            }
+        }
+
+        private void dgv1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Delete) //tablonun delete işlemi kapalı 
+            {
+                e.Handled = true;
+                MessageBox.Show("Güvenlik için tablodan bu şekilde silme işlemi gerçekleştiremezsiniz. Lütfen silme panelinden işlem yapın.", "UYARI");
             }
         }
 

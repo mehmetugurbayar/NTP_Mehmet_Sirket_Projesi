@@ -18,21 +18,22 @@ namespace NTP_Mehmet_Sirket_Proje
         public Personel_Form()
         {
             InitializeComponent();
+            dgvPersonel.AutoGenerateColumns = false;
             //eğer güncelleme alanına yazı yazılırsa ekle butonu güncelle butonuna dönsün
         }
 
-     
+        DataTable dt;
 
         private void Personel_Ekle_Button_Click(object sender, EventArgs e)
         {
-            PersoneBL personelbl = new PersoneBL();
+            PersonelBL personelbl = new PersonelBL();
             try
             {
                 Personel personel = new Personel();
                 personel.Perso_kod = int.Parse(txtKod.Text);
                 personel.Perso_ad = txtAd.Text.Trim();
                 personel.Perso_soyad = txtSoyad.Text.Trim();
-                personel.Perso_cinsiyet = txtCinsiyet.Text.Trim();
+                personel.Perso_cinsiyet = cmboxCinsiyet.SelectedText;
                 personel.Tel = txtTel.Text.Trim();
                 personel.Mail = txtMail.Text.Trim();
                 personel.Dogum_tarihi = txtDoTarihi.Text.Trim();
@@ -64,7 +65,10 @@ namespace NTP_Mehmet_Sirket_Proje
 
         private void Kayit_Sil_Click(object sender, EventArgs e)
         {
-            PersoneBL personelbl = new PersoneBL();
+            //msg box ile güvenlik için şifreyi tekrar girdircek sonra silme yapılcak
+          
+            
+            PersonelBL personelbl = new PersonelBL();
             DialogResult dialog = MessageBox.Show("Silinsinmi", "SİLME İŞLEMİ", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
 
@@ -93,9 +97,13 @@ namespace NTP_Mehmet_Sirket_Proje
         }
 
         private void PersonelAraButton_Click(object sender, EventArgs e)
-        { PersoneBL personelbl = new PersoneBL();
-            // bilgiler textboclara yazdırılcak - güncelle butonu çıksın 
-
+        {
+            lblGuncelleUyari.Text = "Uyarı: Personel Kodunu Güncelleyemezsiniz.";
+            Personel_Ekle_Button.Visible = false;
+            GuncelleButton.Visible = true;
+            txtKod.Enabled = false; // personel kodunda güncelleme yapılmaz çünkü identity
+            PersonelBL personelbl = new PersonelBL();
+           
             
             try
             {
@@ -131,14 +139,15 @@ namespace NTP_Mehmet_Sirket_Proje
             }
             finally
             {
-                Temizle();
+                //Temizle();
                 personelbl.Dispose();
             }
         }
 
         private void GuncelleButton_Click(object sender, EventArgs e)
         {
-            PersoneBL personelbl = new PersoneBL();
+           
+            PersonelBL personelbl = new PersonelBL();
             try
             {
                 
@@ -188,7 +197,62 @@ namespace NTP_Mehmet_Sirket_Proje
 
 
         }
+      
+        private void Personel_Form_Load(object sender, EventArgs e)
+        {
+            PersonelBL personelGoster= new PersonelBL();
+            dt = personelGoster.Personel_Tablo();
+            dgvPersonel.DataSource = dt;
+        }
 
-       
+        private void tblKaydetBtn_Click(object sender, EventArgs e)
+        {
+            PersonelBL personelGoster = new PersonelBL();
+            foreach (DataRow item in dt.Rows)
+            {
+
+                Personel personel = new Personel();
+                if (item.RowState != DataRowState.Deleted)
+                {
+                    //personel.Perso_kod = item[0].ToString();
+                    personel.Perso_ad= item[1].ToString();
+                    personel.Perso_soyad = item[2].ToString();
+                    personel.Perso_cinsiyet = item[3].ToString();
+                    personel.Tel = item[4].ToString();
+                    personel.Mail= item[5].ToString();
+                    personel.Dogum_tarihi= item[6].ToString();
+                    personel.Dogum_yeri = item[7].ToString();
+                    personel.Unvan = item[8].ToString();
+                    personel.Maas= Convert.ToInt32(item[9]);
+                    personel.Pozisyon = item[10].ToString();
+                    personel.Baslama_tarihi = item[11].ToString();
+                    
+                }
+
+                switch (item.RowState)
+                {
+                    case DataRowState.Added:
+                        personelGoster.Personel_Ekle(personel);
+                        break;
+
+                    case DataRowState.Modified:
+                        personel.Perso_kod = Convert.ToInt32( item[0]);
+                        personelGoster.Personel_Guncelle(personel);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+        }
+
+        private void Personel_Form_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Delete) //tablonun delete işlemi kapalı 
+            {
+                e.Handled = true;
+                MessageBox.Show("Güvenlik için tablodan bu şekilde silme işlemi gerçekleştiremezsiniz. Lütfen silme panelinden işlem yapın.", "UYARI");
+            }
+        }
     }
 }
