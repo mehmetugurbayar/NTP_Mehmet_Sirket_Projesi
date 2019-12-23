@@ -16,7 +16,7 @@ namespace NTP_Mehmet_Sirket_Proje
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Satis_Form());
+            Application.Run(new Urunler_Form());
         }
     }
 }
