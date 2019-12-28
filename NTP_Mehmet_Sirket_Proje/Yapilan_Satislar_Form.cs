@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sirket.BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +16,16 @@ namespace NTP_Mehmet_Sirket_Proje
         public Yapilan_Satislar_Form()
         {
             InitializeComponent();
-            //BU FORMA SADECE YÖNETİCİ GİRİŞİ OLANLAR GÖREBİLECEK
-            //SADECE YAPILAN SATİŞLAR LİSTELENECEK
+           
+            dgvSatislar.AutoGenerateColumns = false;
+        }
+        DataTable dt;
+        private void Yapilan_Satislar_Form_Load(object sender, EventArgs e)
+        {
+            SatislarBL satislari_göster = new SatislarBL();
+            dt = satislari_göster.Satislar_Tablosu();
+            dgvSatislar.DataSource = dt;
+            satislari_göster.Dispose();
         }
     }
 }

@@ -113,7 +113,7 @@
             // 
             this.MusteriKayitbtn.Location = new System.Drawing.Point(105, 278);
             this.MusteriKayitbtn.Name = "MusteriKayitbtn";
-            this.MusteriKayitbtn.Size = new System.Drawing.Size(75, 23);
+            this.MusteriKayitbtn.Size = new System.Drawing.Size(110, 23);
             this.MusteriKayitbtn.TabIndex = 10;
             this.MusteriKayitbtn.Text = "MusteriKayit";
             this.MusteriKayitbtn.UseVisualStyleBackColor = true;
@@ -121,9 +121,9 @@
             // 
             // MusteriArabtn
             // 
-            this.MusteriArabtn.Location = new System.Drawing.Point(145, 415);
+            this.MusteriArabtn.Location = new System.Drawing.Point(105, 386);
             this.MusteriArabtn.Name = "MusteriArabtn";
-            this.MusteriArabtn.Size = new System.Drawing.Size(75, 23);
+            this.MusteriArabtn.Size = new System.Drawing.Size(110, 23);
             this.MusteriArabtn.TabIndex = 11;
             this.MusteriArabtn.Text = "Müşteri Ara";
             this.MusteriArabtn.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@
             // 
             // txtMusteriAra
             // 
-            this.txtMusteriAra.Location = new System.Drawing.Point(145, 385);
+            this.txtMusteriAra.Location = new System.Drawing.Point(105, 349);
             this.txtMusteriAra.Name = "txtMusteriAra";
             this.txtMusteriAra.Size = new System.Drawing.Size(100, 20);
             this.txtMusteriAra.TabIndex = 13;
@@ -139,15 +139,15 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 348);
+            this.label5.Location = new System.Drawing.Point(12, 319);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(236, 13);
+            this.label5.Size = new System.Drawing.Size(208, 13);
             this.label5.TabIndex = 12;
-            this.label5.Text = "Müşteri Güncellemek için müşteri telefonunu girin";
+            this.label5.Text = "Müşteri Güncellemek için müşteri adını girin";
             // 
             // MusteriGuncellebtn
             // 
-            this.MusteriGuncellebtn.Location = new System.Drawing.Point(95, 278);
+            this.MusteriGuncellebtn.Location = new System.Drawing.Point(105, 278);
             this.MusteriGuncellebtn.Name = "MusteriGuncellebtn";
             this.MusteriGuncellebtn.Size = new System.Drawing.Size(110, 23);
             this.MusteriGuncellebtn.TabIndex = 14;

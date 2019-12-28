@@ -36,7 +36,7 @@ namespace NTP_Mehmet_Sirket_Proje
                 Musteri mstr = new Musteri();
                
                 Random rastgele = new Random();
-                string harfler = "ABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVYZabcçdefgğhıijklmnoöprsştuüvyz";
+                string harfler = "abcçdefgğhıijklmnoöprsştuüvyz";
                 string uret = "";
                 for (int i = 0; i < 6; i++)
                 {
@@ -94,7 +94,7 @@ namespace NTP_Mehmet_Sirket_Proje
 
                 if (mstr == null)
                 {
-                    MessageBox.Show("Böyle bir personel bulunamadı.");
+                    MessageBox.Show("Böyle bir Müşteri bulunamadı.");
                 }
                 else
                 {

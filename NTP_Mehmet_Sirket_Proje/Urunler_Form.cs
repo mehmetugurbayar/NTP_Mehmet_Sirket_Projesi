@@ -70,6 +70,7 @@ namespace NTP_Mehmet_Sirket_Proje
 
             #endregion
 
+            #region EntityDBFirst
             try
             {
                 Urun_Ekleyici();
@@ -86,36 +87,38 @@ namespace NTP_Mehmet_Sirket_Proje
             {
                 Temizle();
                 //dispose edemedim
-            }
+            } 
+            #endregion
 
         }
 
         private void GuncelleButton_Click(object sender, EventArgs e)
         {
             #region KatmanliGuncelle
-            //UrunBL urunbl = new UrunBL();
-            //try
-            //{
+            UrunBL urunbl = new UrunBL();
+            try
+            {
 
-            //    Urun urun = new Urun();
-            //    urun.Urun_kodu = yeniUrunKoduText.Text.Trim();
-            //    urun.Urun_ad = yeniUrunAdiTextb.Text.Trim();
-            //    urun.Stok_mik = int.Parse(yeniUrunStokMikText.Text);
-            //    urun.Fiyat = int.Parse(yeniUrunFiyatText.Text);
-            //    urunbl.Urun_Guncelle(urun);
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Bir hata oluştu");
+                Urun urun = new Urun();
+                urun.Urun_kodu = yeniUrunKoduText.Text.Trim();
+                urun.Urun_ad = yeniUrunAdiTextb.Text.Trim();
+                urun.Stok_mik = int.Parse(yeniUrunStokMikText.Text);
+                urun.Fiyat = int.Parse(yeniUrunFiyatText.Text);
+                urunbl.Urun_Guncelle(urun);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Bir hata oluştu");
 
-            //}
-            //finally
-            //{
-            //    Temizle();
-            //    urunbl.Dispose();
-            //} 
+            }
+            finally
+            {
+                Temizle();
+                urunbl.Dispose();
+            }
             #endregion
 
+            #region EntityDatabaseFirst
             using (SirketContext sctx = new SirketContext())
             {
                 Urun_Tablosu tablo = sctx.Urun_Tablosu.Find(Convert.ToInt32(yeniUrunKoduText.Text));
@@ -123,7 +126,8 @@ namespace NTP_Mehmet_Sirket_Proje
                 tablo.fiyat = Convert.ToInt32(yeniUrunFiyatText.Text);
                 tablo.stok_mik = Convert.ToInt32(yeniUrunStokMikText.Text);
                 sctx.SaveChanges();
-            }
+            } 
+            #endregion
 
         }
 
@@ -180,10 +184,12 @@ namespace NTP_Mehmet_Sirket_Proje
             {
                 
                 Urun_Tablosu urun = ctx.Urun_Tablosu.Find(Convert.ToInt32( urunAraTextbox.Text)); //keyvalues integer olmalı
-                
-                
 
+
+                
                 List<Urun_Tablosu> lst = ctx.Urun_Tablosu.ToList();
+                
+                
                 foreach (Urun_Tablosu uruns in lst)
                 {
                     yeniUrunKoduText.Text = uruns.urun_kodu.ToString();
@@ -258,61 +264,63 @@ namespace NTP_Mehmet_Sirket_Proje
         private void tblKaydetButton_Click(object sender, EventArgs e)
         {
             #region TBLDeğişiki
-            //UrunBL urunGoster = new UrunBL();
-            //foreach (DataRow item in dt.Rows)
+            UrunBL urunGoster = new UrunBL();
+            foreach (DataRow item in dt.Rows)
+            {
+
+                Urun urun = new Urun();
+                if (item.RowState != DataRowState.Deleted)
+                {
+                    urun.Urun_kodu = item[0].ToString();
+                    urun.Urun_ad = item[1].ToString();
+                    urun.Stok_mik = Convert.ToInt32(item[2]);
+                    urun.Fiyat = Convert.ToInt32(item[3]);
+
+                }
+
+                switch (item.RowState)
+                {
+                    case DataRowState.Added:
+                        urunGoster.Urun_Ekle(urun);
+                        break;
+
+                    case DataRowState.Modified:
+                        urun.Urun_kodu = item[0].ToString();
+                        urunGoster.Urun_Guncelle(urun);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            #endregion
+            #region EntityTabloDegisiklik
+            //using (SirketContext sctx = new SirketContext())
             //{
-
-            //    Urun urun = new Urun();
-            //    if (item.RowState != DataRowState.Deleted)
+            //    List<Urun_Tablosu> lst = sctx.Urun_Tablosu.ToList();
+            //    foreach (Urun_Tablosu item in lst)
             //    {
-            //        urun.Urun_kodu = item[0].ToString();
-            //        urun.Urun_ad = item[1].ToString();
-            //        urun.Stok_mik = Convert.ToInt32(item[2]);
-            //        urun.Fiyat = Convert.ToInt32(item[3]);
 
-            //    }
+            //        foreach (DataRow tbl in dt.Rows)
+            //        {
+            //            switch (tbl.RowState)
+            //            {
 
-            //    switch (item.RowState)
-            //    {
-            //        case DataRowState.Added:
-            //            urunGoster.Urun_Ekle(urun);
-            //            break;
-
-            //        case DataRowState.Modified:
-            //            urun.Urun_kodu = item[0].ToString();
-            //            urunGoster.Urun_Guncelle(urun);
-            //            break;
-            //        default:
-            //            break;
+            //                case DataRowState.Added:
+            //                    Urun_Ekleyici();
+            //                    break;
+            //                case DataRowState.Deleted:
+            //                    break;
+            //                case DataRowState.Modified:
+            //                    break;
+            //                default:
+            //                    break;
+            //            }
+            //        }
             //    }
             //}
 
             #endregion
-            using (SirketContext sctx = new SirketContext())
-            {
-                List<Urun_Tablosu> lst = sctx.Urun_Tablosu.ToList();
-                foreach (Urun_Tablosu item in lst)
-                {
-
-                    foreach (DataRow tbl in dt.Rows)
-                    {
-                        switch (tbl.RowState)
-                        {
-
-                            case DataRowState.Added:
-                                Urun_Ekleyici();
-                                break;
-                            case DataRowState.Deleted:
-                                break;
-                            case DataRowState.Modified:
-                                break;
-                            default:
-                                break;
-                        }
-                    }
-                }
-            }
-
 
         }
 

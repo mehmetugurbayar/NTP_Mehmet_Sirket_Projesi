@@ -57,16 +57,15 @@
             this.PersonelAraButton = new System.Windows.Forms.Button();
             this.GuncelleButton = new System.Windows.Forms.Button();
             this.pnlEkleGuncelle = new System.Windows.Forms.Panel();
+            this.txtBaslaTarihi = new System.Windows.Forms.MaskedTextBox();
+            this.txtMail = new System.Windows.Forms.MaskedTextBox();
+            this.txtTel = new System.Windows.Forms.MaskedTextBox();
             this.lblGuncelleUyari = new System.Windows.Forms.Label();
+            this.txtCinsiyet = new System.Windows.Forms.TextBox();
             this.pnlAra = new System.Windows.Forms.Panel();
             this.pnlSil = new System.Windows.Forms.Panel();
             this.pnlTablo = new System.Windows.Forms.Panel();
             this.dgvPersonel = new System.Windows.Forms.DataGridView();
-            this.txtTel = new System.Windows.Forms.MaskedTextBox();
-            this.txtMail = new System.Windows.Forms.MaskedTextBox();
-            this.txtBaslaTarihi = new System.Windows.Forms.MaskedTextBox();
-            this.cmboxCinsiyet = new System.Windows.Forms.ComboBox();
-            this.txtCinsiyet = new System.Windows.Forms.TextBox();
             this.perso_kod = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.perso_ad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.perso_soyad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,6 +78,7 @@
             this.maas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pozisyon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.baslama_tarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmboxCinsiyet = new System.Windows.Forms.ComboBox();
             this.tblKaydetBtn = new System.Windows.Forms.Button();
             this.pnlEkleGuncelle.SuspendLayout();
             this.pnlAra.SuspendLayout();
@@ -244,7 +244,7 @@
             // 
             // Personel_Ekle_Button
             // 
-            this.Personel_Ekle_Button.Location = new System.Drawing.Point(114, 425);
+            this.Personel_Ekle_Button.Location = new System.Drawing.Point(114, 441);
             this.Personel_Ekle_Button.Name = "Personel_Ekle_Button";
             this.Personel_Ekle_Button.Size = new System.Drawing.Size(100, 23);
             this.Personel_Ekle_Button.TabIndex = 22;
@@ -359,6 +359,31 @@
             this.pnlEkleGuncelle.Size = new System.Drawing.Size(227, 471);
             this.pnlEkleGuncelle.TabIndex = 32;
             // 
+            // txtBaslaTarihi
+            // 
+            this.txtBaslaTarihi.Location = new System.Drawing.Point(114, 399);
+            this.txtBaslaTarihi.Mask = "00/00/0000";
+            this.txtBaslaTarihi.Name = "txtBaslaTarihi";
+            this.txtBaslaTarihi.Size = new System.Drawing.Size(100, 20);
+            this.txtBaslaTarihi.TabIndex = 38;
+            this.txtBaslaTarihi.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtMail
+            // 
+            this.txtMail.Location = new System.Drawing.Point(114, 199);
+            this.txtMail.Mask = "AAAAAA@byr.com";
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(100, 20);
+            this.txtMail.TabIndex = 36;
+            // 
+            // txtTel
+            // 
+            this.txtTel.Location = new System.Drawing.Point(114, 166);
+            this.txtTel.Mask = "(999) 000-0000";
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(100, 20);
+            this.txtTel.TabIndex = 37;
+            // 
             // lblGuncelleUyari
             // 
             this.lblGuncelleUyari.AutoSize = true;
@@ -367,6 +392,13 @@
             this.lblGuncelleUyari.Size = new System.Drawing.Size(10, 13);
             this.lblGuncelleUyari.TabIndex = 33;
             this.lblGuncelleUyari.Text = " ";
+            // 
+            // txtCinsiyet
+            // 
+            this.txtCinsiyet.Location = new System.Drawing.Point(114, 136);
+            this.txtCinsiyet.Name = "txtCinsiyet";
+            this.txtCinsiyet.Size = new System.Drawing.Size(100, 20);
+            this.txtCinsiyet.TabIndex = 7;
             // 
             // pnlAra
             // 
@@ -422,46 +454,6 @@
             this.dgvPersonel.Name = "dgvPersonel";
             this.dgvPersonel.Size = new System.Drawing.Size(606, 365);
             this.dgvPersonel.TabIndex = 0;
-            // 
-            // txtTel
-            // 
-            this.txtTel.Location = new System.Drawing.Point(114, 166);
-            this.txtTel.Mask = "(999) 000-0000";
-            this.txtTel.Name = "txtTel";
-            this.txtTel.Size = new System.Drawing.Size(100, 20);
-            this.txtTel.TabIndex = 37;
-            // 
-            // txtMail
-            // 
-            this.txtMail.Location = new System.Drawing.Point(114, 199);
-            this.txtMail.Mask = "AAAAAA@byr.com";
-            this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(100, 20);
-            this.txtMail.TabIndex = 36;
-            // 
-            // txtBaslaTarihi
-            // 
-            this.txtBaslaTarihi.Location = new System.Drawing.Point(114, 399);
-            this.txtBaslaTarihi.Mask = "00/00/0000";
-            this.txtBaslaTarihi.Name = "txtBaslaTarihi";
-            this.txtBaslaTarihi.Size = new System.Drawing.Size(100, 20);
-            this.txtBaslaTarihi.TabIndex = 38;
-            this.txtBaslaTarihi.ValidatingType = typeof(System.DateTime);
-            // 
-            // cmboxCinsiyet
-            // 
-            this.cmboxCinsiyet.FormattingEnabled = true;
-            this.cmboxCinsiyet.Location = new System.Drawing.Point(666, 36);
-            this.cmboxCinsiyet.Name = "cmboxCinsiyet";
-            this.cmboxCinsiyet.Size = new System.Drawing.Size(100, 21);
-            this.cmboxCinsiyet.TabIndex = 39;
-            // 
-            // txtCinsiyet
-            // 
-            this.txtCinsiyet.Location = new System.Drawing.Point(114, 136);
-            this.txtCinsiyet.Name = "txtCinsiyet";
-            this.txtCinsiyet.Size = new System.Drawing.Size(100, 20);
-            this.txtCinsiyet.TabIndex = 7;
             // 
             // perso_kod
             // 
@@ -535,6 +527,14 @@
             this.baslama_tarih.DataPropertyName = "baslama_tarih";
             this.baslama_tarih.HeaderText = "İşe Başlama Tarihi";
             this.baslama_tarih.Name = "baslama_tarih";
+            // 
+            // cmboxCinsiyet
+            // 
+            this.cmboxCinsiyet.FormattingEnabled = true;
+            this.cmboxCinsiyet.Location = new System.Drawing.Point(666, 36);
+            this.cmboxCinsiyet.Name = "cmboxCinsiyet";
+            this.cmboxCinsiyet.Size = new System.Drawing.Size(100, 21);
+            this.cmboxCinsiyet.TabIndex = 39;
             // 
             // tblKaydetBtn
             // 

@@ -24,52 +24,35 @@ namespace NTP_Mehmet_Sirket_Proje
 
         }
 
-        string ad, sifre;
-        int yetki;
+       
+        
         private void GirisButton_Click(object sender, EventArgs e)
         {
-         
-
-            //combobox ile seç giriş türünü
-            //rastgele kod versin timer tetiklensin belirtilen sürede kod girilsin
-
-
             GirisBL girisbl = new GirisBL();
-            Giris giris = new Giris();
-            yetki= int.Parse(yetkitxt.Text);
-            ad = idTxt.Text;
-            sifre= sifreTxt.Text;
-            girisbl.Giris_Kontrol(yetki,ad,sifre);
-
-            if (giris.Yetki== yetki && giris.Kullanici_ad==ad && giris.Kullanici_sifre==sifre)
+           
+            if (girisbl.Giris_Control(idTxt.Text, sifreTxt.Text))
             {
+                MainForm frm = new MainForm();
+                frm.Show();
 
-                MessageBox.Show("giriş.yapıldı");
-                //yönetici ise yönetici girişi yapıldı desin
+                this.Hide(); //yeni form açılınca bu form kapanır
             }
-            else
-            {
-
+             else
+           {
                 MessageBox.Show("Böyle bir kullanıcı bulunamadı");
-
               
-
             }
+        }
 
-            /*
-        giris.Yetki= girisbl.Giris_Kontrol().Yetki;
-        giris.Kullanici_ad= girisbl.Giris_Kontrol().Kullanici_ad;
-        giris.Kullanici_sifre = girisbl.Giris_Kontrol().Kullanici_sifre;
-        //veritabanından alınan bilgiler
-        */
-
-
-            //this.Enabled = false;
+        private void Giris_Form_Load(object sender, EventArgs e)
+        {
+        
+            
 
         }
 
         private void Cikis_Button_Click(object sender, EventArgs e)
-        {//kapanması gereken diper şwyleride kapat
+        {
 
             Application.Exit();
         }

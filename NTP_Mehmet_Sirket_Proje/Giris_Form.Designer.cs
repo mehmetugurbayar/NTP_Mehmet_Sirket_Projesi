@@ -35,7 +35,6 @@
             this.idTxt = new System.Windows.Forms.TextBox();
             this.sifreTxt = new System.Windows.Forms.TextBox();
             this.Cikis_Button = new System.Windows.Forms.Button();
-            this.yetkitxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -89,6 +88,7 @@
             // 
             this.sifreTxt.Location = new System.Drawing.Point(116, 96);
             this.sifreTxt.Name = "sifreTxt";
+            this.sifreTxt.PasswordChar = '*';
             this.sifreTxt.Size = new System.Drawing.Size(100, 20);
             this.sifreTxt.TabIndex = 5;
             // 
@@ -102,22 +102,12 @@
             this.Cikis_Button.UseVisualStyleBackColor = true;
             this.Cikis_Button.Click += new System.EventHandler(this.Cikis_Button_Click);
             // 
-            // yetkitxt
-            // 
-            this.yetkitxt.BackColor = System.Drawing.Color.White;
-            this.yetkitxt.ForeColor = System.Drawing.Color.Black;
-            this.yetkitxt.Location = new System.Drawing.Point(116, 34);
-            this.yetkitxt.Name = "yetkitxt";
-            this.yetkitxt.Size = new System.Drawing.Size(100, 20);
-            this.yetkitxt.TabIndex = 7;
-            // 
             // Giris_Form
             // 
             this.AcceptButton = this.GirisButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 233);
-            this.Controls.Add(this.yetkitxt);
+            this.ClientSize = new System.Drawing.Size(328, 233);
             this.Controls.Add(this.Cikis_Button);
             this.Controls.Add(this.sifreTxt);
             this.Controls.Add(this.idTxt);
@@ -129,6 +119,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giris_Form";
             this.TransparencyKey = System.Drawing.Color.WhiteSmoke;
+            this.Load += new System.EventHandler(this.Giris_Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,6 +134,5 @@
         private System.Windows.Forms.Button Cikis_Button;
         public System.Windows.Forms.TextBox idTxt;
         public System.Windows.Forms.TextBox sifreTxt;
-        public System.Windows.Forms.TextBox yetkitxt;
     }
 }

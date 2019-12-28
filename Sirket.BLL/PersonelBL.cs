@@ -70,7 +70,7 @@ namespace Sirket.BLL
 
         }
         public DataTable Personel_Tablo() => hlp.TabloGetir("Select perso_kod,perso_ad,perso_soyad,perso_cinsiyet,tel,mail,dogum_tarih,dogum_yeri,unvan,maas,pozisyon,baslama_tarih from Personel_Tablosu  ");
-        
+        public DataTable Personel_ad_goster() => hlp.TabloGetir("Select personel_id ,perso_kod,perso_ad from Personel_Tablosu  ");
         public bool Personel_Sil(Personel personel)
         {
             try

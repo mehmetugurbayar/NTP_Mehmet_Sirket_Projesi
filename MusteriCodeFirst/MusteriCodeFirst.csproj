@@ -5,10 +5,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DB6D25EC-C81C-417C-97DE-D74B06D5ABAF}</ProjectGuid>
+    <ProjectGuid>{A1B435C1-C7F6-4CAE-9654-C4470ABBAE96}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>NTP_Mehmet_Sirket_Proje</RootNamespace>
-    <AssemblyName>NTP_Mehmet_Sirket_Proje</AssemblyName>
+    <RootNamespace>MusteriCodeFirst</RootNamespace>
+    <AssemblyName>MusteriCodeFirst</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,8 +45,6 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,86 +56,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Giris_Form.cs">
+    <Compile Include="CFMusteri_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Giris_Form.Designer.cs">
-      <DependentUpon>Giris_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Musteri_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Musteri_Form.Designer.cs">
-      <DependentUpon>Musteri_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Personel_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Personel_Form.Designer.cs">
-      <DependentUpon>Personel_Form.cs</DependentUpon>
+    <Compile Include="CFMusteri_Form.Designer.cs">
+      <DependentUpon>CFMusteri_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Satis_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Satis_Form.Designer.cs">
-      <DependentUpon>Satis_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Urun.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Urun.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Urun.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Urun.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Urun.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Urun.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Urunler_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Urunler_Form.Designer.cs">
-      <DependentUpon>Urunler_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Urun_Tablosu.cs">
-      <DependentUpon>Urun.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Yapilan_Satislar_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Yapilan_Satislar_Form.Designer.cs">
-      <DependentUpon>Yapilan_Satislar_Form.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Yonetici_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Yonetici_Form.Designer.cs">
-      <DependentUpon>Yonetici_Form.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Giris_Form.resx">
-      <DependentUpon>Giris_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Musteri_Form.resx">
-      <DependentUpon>Musteri_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Personel_Form.resx">
-      <DependentUpon>Personel_Form.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -147,15 +73,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Satis_Form.resx">
-      <DependentUpon>Satis_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Urunler_Form.resx">
-      <DependentUpon>Urunler_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Yapilan_Satislar_Form.resx">
-      <DependentUpon>Yapilan_Satislar_Form.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -166,41 +83,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EntityDeploy Include="Urun.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Urun.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Urun.edmx.diagram">
-      <DependentUpon>Urun.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Sirket.BLL\Sirket.BLL.csproj">
-      <Project>{c396ae71-f40b-49f6-a5a8-97ed7b6237df}</Project>
-      <Name>Sirket.BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Sirket.MODEL\Sirket.MODEL.csproj">
-      <Project>{f65765df-a6ae-40b7-8a62-098c0cb0feae}</Project>
-      <Name>Sirket.MODEL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Urun.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Urun.edmx</DependentUpon>
-      <LastGenOutput>Urun.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Urun.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Urun.edmx</DependentUpon>
-      <LastGenOutput>Urun.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

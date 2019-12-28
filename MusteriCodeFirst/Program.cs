@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace NTP_Mehmet_Sirket_Proje
+namespace MusteriCodeFirst
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace NTP_Mehmet_Sirket_Proje
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Musteri_Form());
+            Application.Run(new CFMusteri_Form());
         }
     }
 }

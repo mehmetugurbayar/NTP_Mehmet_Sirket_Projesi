@@ -13,7 +13,8 @@ namespace Sirket.BLL
   public  class MusteriBL
     {
         Helper hlp = new Helper();
-        public DataTable Musteri_Tablo() => hlp.TabloGetir("Select musteri_kod,musteri_ad,musteri_soyad,tel,adres from Musteri_Tablosu  ");
+        public DataTable Musteri_Tablo() => hlp.TabloGetir("Select musterid,musteri_kod,musteri_ad,musteri_soyad,tel,adres from Musteri_Tablosu  ");
+
         public bool Musteri_Ekle(Musteri musteri) 
         {
             try

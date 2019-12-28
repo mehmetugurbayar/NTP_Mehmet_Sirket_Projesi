@@ -83,7 +83,7 @@ namespace Sirket.BLL
             }
 
         }
-        public DataTable Urun_Tablo() => hlp.TabloGetir("Select urun_kodu,urun_ad,stok_mik,fiyat from Urun_Tablosu ");
+        public DataTable Urun_Tablo() => hlp.TabloGetir("Select urun_id,urun_kodu,urun_ad,stok_mik,fiyat from Urun_Tablosu ");
 
 
 
