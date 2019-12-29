@@ -78,13 +78,16 @@
             this.maas = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pozisyon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.baslama_tarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmboxCinsiyet = new System.Windows.Forms.ComboBox();
             this.tblKaydetBtn = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.pnlEkleGuncelle.SuspendLayout();
             this.pnlAra.SuspendLayout();
             this.pnlSil.SuspendLayout();
             this.pnlTablo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonel)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -216,6 +219,7 @@
             this.txtMaas.Name = "txtMaas";
             this.txtMaas.Size = new System.Drawing.Size(100, 20);
             this.txtMaas.TabIndex = 19;
+            this.txtMaas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaas_KeyPress);
             // 
             // label10
             // 
@@ -279,12 +283,15 @@
             // 
             // Kayit_Sil
             // 
+            this.Kayit_Sil.BackColor = System.Drawing.Color.CadetBlue;
+            this.Kayit_Sil.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Kayit_Sil.ForeColor = System.Drawing.Color.White;
             this.Kayit_Sil.Location = new System.Drawing.Point(262, 2);
             this.Kayit_Sil.Name = "Kayit_Sil";
             this.Kayit_Sil.Size = new System.Drawing.Size(75, 23);
             this.Kayit_Sil.TabIndex = 27;
             this.Kayit_Sil.Text = "Sil";
-            this.Kayit_Sil.UseVisualStyleBackColor = true;
+            this.Kayit_Sil.UseVisualStyleBackColor = false;
             this.Kayit_Sil.Click += new System.EventHandler(this.Kayit_Sil_Click);
             // 
             // label14
@@ -305,22 +312,28 @@
             // 
             // PersonelAraButton
             // 
+            this.PersonelAraButton.BackColor = System.Drawing.Color.CadetBlue;
+            this.PersonelAraButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.PersonelAraButton.ForeColor = System.Drawing.Color.White;
             this.PersonelAraButton.Location = new System.Drawing.Point(262, 5);
             this.PersonelAraButton.Name = "PersonelAraButton";
             this.PersonelAraButton.Size = new System.Drawing.Size(75, 23);
             this.PersonelAraButton.TabIndex = 30;
             this.PersonelAraButton.Text = "Ara";
-            this.PersonelAraButton.UseVisualStyleBackColor = true;
+            this.PersonelAraButton.UseVisualStyleBackColor = false;
             this.PersonelAraButton.Click += new System.EventHandler(this.PersonelAraButton_Click);
             // 
             // GuncelleButton
             // 
+            this.GuncelleButton.BackColor = System.Drawing.Color.CadetBlue;
+            this.GuncelleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.GuncelleButton.ForeColor = System.Drawing.Color.White;
             this.GuncelleButton.Location = new System.Drawing.Point(114, 442);
             this.GuncelleButton.Name = "GuncelleButton";
             this.GuncelleButton.Size = new System.Drawing.Size(100, 22);
             this.GuncelleButton.TabIndex = 31;
             this.GuncelleButton.Text = "Güncelle";
-            this.GuncelleButton.UseVisualStyleBackColor = true;
+            this.GuncelleButton.UseVisualStyleBackColor = false;
             this.GuncelleButton.Visible = false;
             this.GuncelleButton.Click += new System.EventHandler(this.GuncelleButton_Click);
             // 
@@ -354,7 +367,7 @@
             this.pnlEkleGuncelle.Controls.Add(this.txtDoYeri);
             this.pnlEkleGuncelle.Controls.Add(this.txtUnvan);
             this.pnlEkleGuncelle.Controls.Add(this.label9);
-            this.pnlEkleGuncelle.Location = new System.Drawing.Point(12, 24);
+            this.pnlEkleGuncelle.Location = new System.Drawing.Point(12, 68);
             this.pnlEkleGuncelle.Name = "pnlEkleGuncelle";
             this.pnlEkleGuncelle.Size = new System.Drawing.Size(227, 471);
             this.pnlEkleGuncelle.TabIndex = 32;
@@ -406,7 +419,7 @@
             this.pnlAra.Controls.Add(this.label14);
             this.pnlAra.Controls.Add(this.txtGuncellePKodu);
             this.pnlAra.Controls.Add(this.PersonelAraButton);
-            this.pnlAra.Location = new System.Drawing.Point(263, 24);
+            this.pnlAra.Location = new System.Drawing.Point(263, 68);
             this.pnlAra.Name = "pnlAra";
             this.pnlAra.Size = new System.Drawing.Size(363, 35);
             this.pnlAra.TabIndex = 33;
@@ -417,7 +430,7 @@
             this.pnlSil.Controls.Add(this.label13);
             this.pnlSil.Controls.Add(this.txtPerso_Sil);
             this.pnlSil.Controls.Add(this.Kayit_Sil);
-            this.pnlSil.Location = new System.Drawing.Point(263, 60);
+            this.pnlSil.Location = new System.Drawing.Point(263, 104);
             this.pnlSil.Name = "pnlSil";
             this.pnlSil.Size = new System.Drawing.Size(363, 31);
             this.pnlSil.TabIndex = 34;
@@ -426,7 +439,7 @@
             // 
             this.pnlTablo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlTablo.Controls.Add(this.dgvPersonel);
-            this.pnlTablo.Location = new System.Drawing.Point(263, 126);
+            this.pnlTablo.Location = new System.Drawing.Point(263, 170);
             this.pnlTablo.Name = "pnlTablo";
             this.pnlTablo.Size = new System.Drawing.Size(610, 369);
             this.pnlTablo.TabIndex = 35;
@@ -435,6 +448,8 @@
             // 
             this.dgvPersonel.AllowUserToDeleteRows = false;
             this.dgvPersonel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPersonel.BackgroundColor = System.Drawing.Color.MintCream;
+            this.dgvPersonel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvPersonel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersonel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.perso_kod,
@@ -528,37 +543,71 @@
             this.baslama_tarih.HeaderText = "İşe Başlama Tarihi";
             this.baslama_tarih.Name = "baslama_tarih";
             // 
-            // cmboxCinsiyet
-            // 
-            this.cmboxCinsiyet.FormattingEnabled = true;
-            this.cmboxCinsiyet.Location = new System.Drawing.Point(666, 36);
-            this.cmboxCinsiyet.Name = "cmboxCinsiyet";
-            this.cmboxCinsiyet.Size = new System.Drawing.Size(100, 21);
-            this.cmboxCinsiyet.TabIndex = 39;
-            // 
             // tblKaydetBtn
             // 
-            this.tblKaydetBtn.Location = new System.Drawing.Point(652, 99);
+            this.tblKaydetBtn.BackColor = System.Drawing.Color.CadetBlue;
+            this.tblKaydetBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tblKaydetBtn.ForeColor = System.Drawing.Color.White;
+            this.tblKaydetBtn.Location = new System.Drawing.Point(642, 113);
             this.tblKaydetBtn.Name = "tblKaydetBtn";
-            this.tblKaydetBtn.Size = new System.Drawing.Size(209, 23);
+            this.tblKaydetBtn.Size = new System.Drawing.Size(229, 53);
             this.tblKaydetBtn.TabIndex = 40;
             this.tblKaydetBtn.Text = "Tablodaki Değişiklikleri Kaydet";
-            this.tblKaydetBtn.UseVisualStyleBackColor = true;
+            this.tblKaydetBtn.UseVisualStyleBackColor = false;
             this.tblKaydetBtn.Click += new System.EventHandler(this.tblKaydetBtn_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label15.Location = new System.Drawing.Point(12, 12);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(188, 27);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Personel İşlemleri";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(891, 62);
+            this.panel1.TabIndex = 41;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.CadetBlue;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(773, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(107, 35);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Çıkış";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Personel_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 535);
+            this.BackColor = System.Drawing.Color.MintCream;
+            this.ClientSize = new System.Drawing.Size(891, 573);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.tblKaydetBtn);
-            this.Controls.Add(this.cmboxCinsiyet);
             this.Controls.Add(this.pnlTablo);
             this.Controls.Add(this.pnlSil);
             this.Controls.Add(this.pnlAra);
             this.Controls.Add(this.pnlEkleGuncelle);
             this.Name = "Personel_Form";
-            this.Text = "Personel_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Personel İşlemleri";
             this.Load += new System.EventHandler(this.Personel_Form_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Personel_Form_KeyPress);
             this.pnlEkleGuncelle.ResumeLayout(false);
@@ -569,6 +618,8 @@
             this.pnlSil.PerformLayout();
             this.pnlTablo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPersonel)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -612,7 +663,6 @@
         private System.Windows.Forms.MaskedTextBox txtTel;
         private System.Windows.Forms.MaskedTextBox txtMail;
         private System.Windows.Forms.MaskedTextBox txtBaslaTarihi;
-        private System.Windows.Forms.ComboBox cmboxCinsiyet;
         private System.Windows.Forms.TextBox txtCinsiyet;
         private System.Windows.Forms.DataGridViewTextBoxColumn perso_kod;
         private System.Windows.Forms.DataGridViewTextBoxColumn perso_ad;
@@ -627,5 +677,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn pozisyon;
         private System.Windows.Forms.DataGridViewTextBoxColumn baslama_tarih;
         private System.Windows.Forms.Button tblKaydetBtn;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
     }
 }

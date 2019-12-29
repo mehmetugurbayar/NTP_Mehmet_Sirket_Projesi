@@ -44,7 +44,7 @@ namespace NTP_Mehmet_Sirket_Proje
                 if (stbl.Satis_Ekle(satis))
                 {
 
-                    MessageBox.Show("oldu");
+                    MessageBox.Show("1 Adet Satış Yapıldı");
 
 
                 }
@@ -58,7 +58,7 @@ namespace NTP_Mehmet_Sirket_Proje
 
 
         }
-        // DataTable urunler_tablo,musteri_tablo;
+       
         DataTable dt;
 
 
@@ -105,8 +105,9 @@ namespace NTP_Mehmet_Sirket_Proje
         }
         private void TabloYenilebtn_Click(object sender, EventArgs e)
         {
-            dgvMusteriTablo.Refresh(); //çalışmıyor
-            dgvMusteriTablo.Update();
+            MusteriBL musteriGoster = new MusteriBL();
+            dt = musteriGoster.Musteri_Tablo();
+            dgvMusteriTablo.DataSource = dt;
         }
 
 
@@ -115,20 +116,11 @@ namespace NTP_Mehmet_Sirket_Proje
 
 
 
-        private void pnlYeniMusteri_MouseHover(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            grpboxSatis.Width = 310;
-            lblMusteriInfo.Text = "mstr yoksa";
-            pnlmusteriButon.Visible = true;
+            this.Hide();
 
+           
         }
-
-        private void pnlYeniMusteri_MouseLeave(object sender, EventArgs e)
-        {
-            grpboxSatis.Width = 229;
-            pnlmusteriButon.Visible = false;
-        }
-
-
     }
 }

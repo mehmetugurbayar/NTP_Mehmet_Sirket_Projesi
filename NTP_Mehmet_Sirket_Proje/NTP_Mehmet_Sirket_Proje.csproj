@@ -120,12 +120,6 @@
     <Compile Include="Yapilan_Satislar_Form.Designer.cs">
       <DependentUpon>Yapilan_Satislar_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Yonetici_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Yonetici_Form.Designer.cs">
-      <DependentUpon>Yonetici_Form.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Giris_Form.resx">
       <DependentUpon>Giris_Form.cs</DependentUpon>
     </EmbeddedResource>

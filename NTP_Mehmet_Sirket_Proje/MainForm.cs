@@ -48,7 +48,16 @@ namespace NTP_Mehmet_Sirket_Proje
         {
             
 
-            Yonetici_Form frm = new Yonetici_Form();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Personel_Form frm =new Personel_Form();
             frm.Show();
         }
     }

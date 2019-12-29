@@ -33,7 +33,7 @@ namespace NTP_Mehmet_Sirket_Proje
                 personel.Perso_kod = int.Parse(txtKod.Text);
                 personel.Perso_ad = txtAd.Text.Trim();
                 personel.Perso_soyad = txtSoyad.Text.Trim();
-                personel.Perso_cinsiyet = cmboxCinsiyet.SelectedText;
+                personel.Perso_cinsiyet = txtCinsiyet.Text.Trim();
                 personel.Tel = txtTel.Text.Trim();
                 personel.Mail = txtMail.Text.Trim();
                 personel.Dogum_tarihi = txtDoTarihi.Text.Trim();
@@ -44,7 +44,7 @@ namespace NTP_Mehmet_Sirket_Proje
                 personel.Baslama_tarihi = txtBaslaTarihi.Text.Trim();
                 if (personelbl.Personel_Ekle(personel))
                 {
-                    MessageBox.Show("personel eklendi");
+                    MessageBox.Show("1 Yeni Personel Eklendi");
                 }
                 else
                 {
@@ -80,7 +80,7 @@ namespace NTP_Mehmet_Sirket_Proje
                 personel.Perso_kod = int.Parse(txtPerso_Sil.Text);
                 if (personelbl.Personel_Sil(personel))
                 {
-                    MessageBox.Show("personel silindi");
+                    MessageBox.Show("Personel silindi");
 
                 }
             }
@@ -168,11 +168,11 @@ namespace NTP_Mehmet_Sirket_Proje
                 personel.Baslama_tarihi = txtBaslaTarihi.Text.Trim();
                 if (personelbl.Personel_Guncelle(personel))
                 {
-                    MessageBox.Show("personel eklendi");
+                    MessageBox.Show("1 Personel Güncellendi");
                 }
                 else
                 {
-                    MessageBox.Show("Personel eklenirken bir hata oluştu");
+                    MessageBox.Show("Personel Güncellenirken bir hata oluştu");
                 }
             }
             catch (Exception)
@@ -253,6 +253,19 @@ namespace NTP_Mehmet_Sirket_Proje
                 e.Handled = true;
                 MessageBox.Show("Güvenlik için tablodan bu şekilde silme işlemi gerçekleştiremezsiniz. Lütfen silme panelinden işlem yapın.", "UYARI");
             }
+        }
+
+        private void txtMaas_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);//sadece sayısal giriş yapılıyor
+            
+           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
         }
     }
 }

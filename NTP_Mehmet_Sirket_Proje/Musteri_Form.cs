@@ -53,7 +53,7 @@ namespace NTP_Mehmet_Sirket_Proje
                 if (mbl.Musteri_Ekle(mstr))
                 {
 
-                    MessageBox.Show("eklendi");
+                    MessageBox.Show("Müşteri Eklendi");
 
 
                 }
@@ -121,6 +121,31 @@ namespace NTP_Mehmet_Sirket_Proje
         private void MusteriGuncellebtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtMusteriAd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (((int)e.KeyChar > 32 && (int)e.KeyChar < 65) || ((int)e.KeyChar > 90 && (int)e.KeyChar < 97) || (int)e.KeyChar > 122 && (int)e.KeyChar < 127)
+            {
+                e.Handled = true;
+                MessageBox.Show("Ad yalnızca harflerden oluşmaktadır");
+            }
+        }
+
+        private void txtMusteriSoyad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (((int)e.KeyChar > 32 && (int)e.KeyChar < 65) || ((int)e.KeyChar > 90 && (int)e.KeyChar < 97) || (int)e.KeyChar > 122 && (int)e.KeyChar < 127)
+            {
+                e.Handled = true;
+                MessageBox.Show("Soyad yalnızca harflerden oluşmaktadır");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+           
         }
     }
 }

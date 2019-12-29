@@ -87,46 +87,127 @@ namespace NTP_Mehmet_Sirket_Proje
             {
                 Temizle();
                 //dispose edemedim
-            } 
+            }
             #endregion
 
         }
 
-        private void GuncelleButton_Click(object sender, EventArgs e)
+        private void URUN_ARA_BUTTON_Click(object sender, EventArgs e)
         {
-            #region KatmanliGuncelle
-            UrunBL urunbl = new UrunBL();
+            #region entity
             try
             {
+                using (SirketContext ctx = new SirketContext())
+                {
+                    //urun tablosu içinde arama yapılıypr
+                    List<Urun_Tablosu> lst = ctx.Urun_Tablosu.ToList();
+                    foreach (Urun_Tablosu uruns in ctx.Urun_Tablosu.Where(p => p.urun_kodu == urunAraTextbox.Text))//bool döndürür
+                    {
+                        yeniUrunKoduText.Text = uruns.urun_kodu.ToString();
+                        yeniUrunAdiTextb.Text = uruns.urun_ad.ToString();
+                        yeniUrunStokMikText.Text = uruns.stok_mik.ToString();
+                        yeniUrunFiyatText.Text = uruns.fiyat.ToString();
+                    }
+                    ctx.SaveChanges();
 
-                Urun urun = new Urun();
-                urun.Urun_kodu = yeniUrunKoduText.Text.Trim();
-                urun.Urun_ad = yeniUrunAdiTextb.Text.Trim();
-                urun.Stok_mik = int.Parse(yeniUrunStokMikText.Text);
-                urun.Fiyat = int.Parse(yeniUrunFiyatText.Text);
-                urunbl.Urun_Guncelle(urun);
+                }
             }
             catch (Exception)
             {
-                MessageBox.Show("Bir hata oluştu");
 
+                throw;
+            } 
+            #endregion
+
+
+            #region KatmanliAra
+            //UrunBL urunbl = new UrunBL();
+            //try
+            //{
+            //    Urun urun = urunbl.Urun_Ara(urunAraTextbox.Text);
+
+
+
+            //    if (urun == null)
+            //    {
+            //        MessageBox.Show("Böyle bir ürün bulunamadı.");
+            //    }
+            //    else
+            //    {
+            //        yeniUrunKoduText.Text = urun.Urun_kodu.ToString();
+            //        yeniUrunAdiTextb.Text = urun.Urun_ad.ToString();
+            //        yeniUrunStokMikText.Text = urun.Stok_mik.ToString();
+            //        yeniUrunFiyatText.Text = urun.Fiyat.ToString();
+            //    }
+            //}
+            //catch (Exception)
+            //{
+
+            //    throw;
+            //}
+            //finally
+            //{
+            //    Temizle();
+            //    urunbl.Dispose();
+            //} 
+            #endregion
+
+
+        }
+        private void GuncelleButton_Click(object sender, EventArgs e)
+        {
+            #region KatmanliGuncelle
+            //UrunBL urunbl = new UrunBL();
+            //try
+            //{
+
+            //    Urun urun = new Urun();
+            //    urun.Urun_kodu = yeniUrunKoduText.Text.Trim();
+            //    urun.Urun_ad = yeniUrunAdiTextb.Text.Trim();
+            //    urun.Stok_mik = int.Parse(yeniUrunStokMikText.Text);
+            //    urun.Fiyat = int.Parse(yeniUrunFiyatText.Text);
+            //    urunbl.Urun_Guncelle(urun);
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("Bir hata oluştu");
+
+            //}
+            //finally
+            //{
+            //    Temizle();
+            //    urunbl.Dispose();
+            //}
+            #endregion
+
+            #region EntityDatabaseFirst
+            try
+            {
+                using (SirketContext sctx = new SirketContext())
+                {
+
+
+                    foreach (Urun_Tablosu uruns in sctx.Urun_Tablosu.Where(p => p.urun_kodu == urunAraTextbox.Text))//bool döndürür
+                    {
+                        uruns.urun_kodu = yeniUrunKoduText.Text;
+                        uruns.urun_ad = yeniUrunAdiTextb.Text;
+                        uruns.stok_mik = int.Parse(yeniUrunStokMikText.Text);
+                        uruns.fiyat = int.Parse(yeniUrunFiyatText.Text);
+                    }
+                    sctx.SaveChanges();
+                    MessageBox.Show("1 ürün güncellendi");
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
             finally
             {
                 Temizle();
-                urunbl.Dispose();
             }
-            #endregion
-
-            #region EntityDatabaseFirst
-            using (SirketContext sctx = new SirketContext())
-            {
-                Urun_Tablosu tablo = sctx.Urun_Tablosu.Find(Convert.ToInt32(yeniUrunKoduText.Text));
-                tablo.urun_ad = yeniUrunAdiTextb.Text;
-                tablo.fiyat = Convert.ToInt32(yeniUrunFiyatText.Text);
-                tablo.stok_mik = Convert.ToInt32(yeniUrunStokMikText.Text);
-                sctx.SaveChanges();
-            } 
             #endregion
 
         }
@@ -165,77 +246,38 @@ namespace NTP_Mehmet_Sirket_Proje
             //} 
             #endregion
 
-            using (SirketContext ctx = new SirketContext())
+            #region entity
+            try
             {
-
-                ctx.Urun_Tablosu.Remove(ctx.Urun_Tablosu.Find(int.Parse(urunSiltextbox.Text)));
-
-                
-                ctx.SaveChanges();
-
-            }
-
-
-        }
-
-        private void URUN_ARA_BUTTON_Click(object sender, EventArgs e)
-        {
-           using (SirketContext ctx = new SirketContext())
-            {
-                
-                Urun_Tablosu urun = ctx.Urun_Tablosu.Find(Convert.ToInt32( urunAraTextbox.Text)); //keyvalues integer olmalı
-
-
-                
-                List<Urun_Tablosu> lst = ctx.Urun_Tablosu.ToList();
-                
-                
-                foreach (Urun_Tablosu uruns in lst)
+                using (SirketContext ctx = new SirketContext())
                 {
-                    yeniUrunKoduText.Text = uruns.urun_kodu.ToString();
-                    yeniUrunAdiTextb.Text = uruns.urun_ad.ToString();
-                    yeniUrunStokMikText.Text = uruns.stok_mik.ToString();
-                    yeniUrunFiyatText.Text = uruns.fiyat.ToString();
+                    foreach (Urun_Tablosu urunler in ctx.Urun_Tablosu.Where(w => w.urun_kodu == urunSiltextbox.Text))
+                    { //urun tablosu içinde gezinip lambda expression(isimsiz fonks) kullanıp
+                      //lambda parametre kullanılabilen isimsiz fınksiyonlardır
+                        ctx.Urun_Tablosu.Remove(urunler);
+                    }
+                    ctx.SaveChanges();
+                    MessageBox.Show("1 ürün eklendi");
+
                 }
-                   ctx.SaveChanges();
-                
             }
-           
+            catch (Exception)
+            {
 
-            #region KatmanliAra
-            //UrunBL urunbl = new UrunBL();
-            //try
-            //{
-            //    Urun urun = urunbl.Urun_Ara(urunAraTextbox.Text);
+                throw;
+            }
+            finally
+            {
 
+                Temizle();
+            }
 
-
-            //    if (urun == null)
-            //    {
-            //        MessageBox.Show("Böyle bir ürün bulunamadı.");
-            //    }
-            //    else
-            //    {
-            //        yeniUrunKoduText.Text = urun.Urun_kodu.ToString();
-            //        yeniUrunAdiTextb.Text = urun.Urun_ad.ToString();
-            //        yeniUrunStokMikText.Text = urun.Stok_mik.ToString();
-            //        yeniUrunFiyatText.Text = urun.Fiyat.ToString();
-            //    }
-            //}
-            //catch (Exception)
-            //{
-
-            //    throw;
-            //}
-            //finally
-            //{
-            //    Temizle();
-            //    urunbl.Dispose();
-            //} 
             #endregion
 
-
+            
         }
+
+       
 
         private void Urunler_Form_Load(object sender, EventArgs e)
         {
@@ -248,7 +290,7 @@ namespace NTP_Mehmet_Sirket_Proje
         }
         void Urun_Ekleyici()
         {
-            using (SirketContext sctx = new SirketContext())
+            using (SirketContext sctx = new SirketContext()) //enttity nin oluşturduğu class 
             {
                 sctx.Urun_Tablosu.Add(new Urun_Tablosu
                 {
@@ -257,7 +299,7 @@ namespace NTP_Mehmet_Sirket_Proje
                     fiyat = Convert.ToInt32(urun_fiyat_textbox.Text),
                     stok_mik = Convert.ToInt32(urun_stokMik_textbox.Text)
                 });
-                sctx.SaveChanges();
+                sctx.SaveChanges(); //db ye gönderir
             }
 
         }
@@ -360,6 +402,24 @@ namespace NTP_Mehmet_Sirket_Proje
             }
         }
 
+        private void Yenilebtn_Click(object sender, EventArgs e)
+        {
+            UrunBL urunGoster = new UrunBL(); //tekrar datasource ye attık
+            dt = urunGoster.Urun_Tablo();
+            dgv1.DataSource = dt;
+            urunGoster.Dispose();
+
+            Temizle();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+
+           
+        }
+
         void Temizle()
         {
             foreach (Control item in this.Controls["pnlEkle"].Controls)
@@ -378,5 +438,6 @@ namespace NTP_Mehmet_Sirket_Proje
             urun_counter_lbl.Text = "";
 
         }
+        
     }
 }

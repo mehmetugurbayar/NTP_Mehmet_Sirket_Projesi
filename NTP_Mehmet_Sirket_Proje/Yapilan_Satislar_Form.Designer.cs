@@ -41,6 +41,7 @@
             // 
             this.dgvSatislar.AllowUserToDeleteRows = false;
             this.dgvSatislar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSatislar.BackgroundColor = System.Drawing.Color.MintCream;
             this.dgvSatislar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSatislar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.satis_kod,
@@ -51,7 +52,7 @@
             this.dgvSatislar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSatislar.Location = new System.Drawing.Point(0, 0);
             this.dgvSatislar.Name = "dgvSatislar";
-            this.dgvSatislar.Size = new System.Drawing.Size(800, 450);
+            this.dgvSatislar.Size = new System.Drawing.Size(580, 293);
             this.dgvSatislar.TabIndex = 0;
             // 
             // satis_kod
@@ -93,10 +94,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(580, 293);
             this.Controls.Add(this.dgvSatislar);
             this.Name = "Yapilan_Satislar_Form";
-            this.Text = "Yapilan_Satislar_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Yapılan Satışların Listesi";
             this.Load += new System.EventHandler(this.Yapilan_Satislar_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSatislar)).EndInit();
             this.ResumeLayout(false);
