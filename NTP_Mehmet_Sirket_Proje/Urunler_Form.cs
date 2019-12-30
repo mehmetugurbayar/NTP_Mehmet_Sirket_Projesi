@@ -257,7 +257,7 @@ namespace NTP_Mehmet_Sirket_Proje
                         ctx.Urun_Tablosu.Remove(urunler);
                     }
                     ctx.SaveChanges();
-                    MessageBox.Show("1 ürün eklendi");
+                    MessageBox.Show("1 ürün silindi");
 
                 }
             }
